@@ -1,2 +1,6 @@
 FROM nginx:alpine
-CMD  [ "nginx", "-g", "daemon off;" ]
+
+
+# default entrypoint is great, but you can be more explicit if you like with something like:
+
+# CMD  [ "nginx", "-g", "daemon off;" ]
