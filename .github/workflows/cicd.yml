@@ -8,7 +8,7 @@ jobs:
       # https://github.com/internetarchive/cicd
       - uses: internetarchive/cicd@v1
         with:
-          NOMAD_VAR_PORTS: '{ 80 = "http"}'
+          NOMAD_VAR_PORTS: '{ 80 = "http" }'
           BASE_DOMAIN: 'dev.archive.org'
           NOMAD_TOKEN: ${{ secrets.NOMAD_TOKEN }}
           REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
