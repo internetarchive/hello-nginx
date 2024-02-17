@@ -1,15 +1,11 @@
-name: CICD
 on: push
 jobs:
   cicd:
-    runs-on: ubuntu-latest
-    permissions: { contents: read, packages: write, id-token: write }
-    steps:
-      # https://github.com/internetarchive/cicd
-      - uses: internetarchive/cicd@v1
-        with:
-          NOMAD_VAR_PORTS: '{ 80 = "http" }'
-          BASE_DOMAIN: 'dev.archive.org'
-          # NOMAD_ADDR: 'uncomment line & set value (for non-archive.org deploys)'
-          NOMAD_TOKEN: ${{ secrets.NOMAD_TOKEN }}
-          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # https://github.com/internetarchive/cicd
+    uses: internetarchive/cicd/.github/workflows/cicd.yml@main
+    with:
+      NOMAD_VAR_PORTS: '{ 80 = "http" }'
+      # BASE_DOMAIN: 'uncomment line & set value (for non-archive.org deploys)'
+      # NOMAD_ADDR:  'uncomment line & set value (for non-archive.org deploys)'
+    secrets:
+      NOMAD_TOKEN: ${{ secrets.NOMAD_TOKEN }}
